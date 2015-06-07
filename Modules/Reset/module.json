@@ -7,7 +7,8 @@
     "active": 1,
     "order": 3,
     "providers": [
-        "Modules\\Reset\\Providers\\RouteServiceProvider"
+        "Modules\\Reset\\Providers\\RouteServiceProvider",
+        "Modules\\Reset\\Providers\\ResetServiceProvider"
     ],
     "files": [
     ]
