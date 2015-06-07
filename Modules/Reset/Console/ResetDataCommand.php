@@ -2,6 +2,10 @@
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
+use Modules\Block\Repositories\BlockRepository;
+use Modules\Blog\Repositories\CategoryRepository;
+use Modules\Blog\Repositories\PostRepository;
+use Modules\Blog\Repositories\TagRepository;
 use Modules\Media\Repositories\FileRepository;
 use Modules\Menu\Repositories\MenuRepository;
 use Modules\Page\Repositories\PageRepository;
@@ -33,10 +37,27 @@ class ResetDataCommand extends Command
      * @var FileRepository
      */
     private $file;
+    /**
+     * @var CategoryRepository
+     */
+    private $category;
+    /**
+     * @var PostRepository
+     */
+    private $post;
+    /**
+     * @var TagRepository
+     */
+    private $tag;
+    /**
+     * @var BlockRepository
+     */
+    private $block;
 
     public function __construct(
         UserRepository $user, PageRepository $page, SettingRepository $setting, MenuRepository $menu,
-        FileRepository $file
+        FileRepository $file, PostRepository $post, CategoryRepository $category, TagRepository $tag,
+        BlockRepository $block
     )
     {
         parent::__construct();
@@ -45,6 +66,10 @@ class ResetDataCommand extends Command
         $this->setting = $setting;
         $this->menu = $menu;
         $this->file = $file;
+        $this->category = $category;
+        $this->post = $post;
+        $this->tag = $tag;
+        $this->block = $block;
     }
 
     public function fire()
@@ -54,6 +79,8 @@ class ResetDataCommand extends Command
         $this->emptyMenuTable();
         $this->emptyMedia();
         $this->emptyPagesTable();
+        $this->emptyBlogTables();
+        $this->emptyBlockTables();
 
         Artisan::call('module:seed', ['module' => 'Setting']);
         Artisan::call('module:seed', ['module' => 'Page']);
@@ -109,6 +136,32 @@ class ResetDataCommand extends Command
     {
         foreach ($this->page->all() as $page) {
             $this->page->destroy($page);
+        }
+    }
+
+    /**
+     *
+     */
+    private function emptyBlogTables()
+    {
+        foreach ($this->post->all() as $post) {
+            $this->post->destroy($post);
+        }
+        foreach ($this->category->all() as $category) {
+            $this->category->destroy($category);
+        }
+        foreach ($this->tag->all() as $tag) {
+            $this->tag->destroy($tag);
+        }
+    }
+
+    /**
+     *
+     */
+    private function emptyBlockTables()
+    {
+        foreach ($this->block->all() as $block) {
+            $this->block->destroy($block);
         }
     }
 }
