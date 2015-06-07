@@ -15,6 +15,8 @@ return [
 
 	'debug' => env('APP_DEBUG'),
 
+	'cache' => env('APP_cache', false),
+
 	/*
 	|--------------------------------------------------------------------------
 	| Application URL
