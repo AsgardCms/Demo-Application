@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9bce6f71dddb3f6475c487156b7e8f33",
+    "hash": "1538847678dbe826dbb66efe047dab97",
     "packages": [
         {
             "name": "asgardcms/adminlte-theme",
@@ -41,6 +41,82 @@
                 "asgard-cms"
             ],
             "time": "2015-04-29 06:51:37"
+        },
+        {
+            "name": "asgardcms/block",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/AsgardCms/Block.git",
+                "reference": "bff91cd8df151796996fa17edc3808f58cb7c7f2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/AsgardCms/Block/zipball/bff91cd8df151796996fa17edc3808f58cb7c7f2",
+                "reference": "bff91cd8df151796996fa17edc3808f58cb7c7f2",
+                "shasum": ""
+            },
+            "require": {
+                "asgardcms/core-module": "dev-develop",
+                "composer/installers": "~1.0",
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "fzaninotto/faker": "~1.5",
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "asgard-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Widart",
+                    "email": "n.widart@gmail.com"
+                }
+            ],
+            "description": "A module to create small blocks of content to display anywhere on the site.",
+            "time": "2015-04-29 10:20:20"
+        },
+        {
+            "name": "asgardcms/blog-module",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/AsgardCms/Blog.git",
+                "reference": "27585060efd636a61ec13fcab24e69b30adaac91"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/AsgardCms/Blog/zipball/27585060efd636a61ec13fcab24e69b30adaac91",
+                "reference": "27585060efd636a61ec13fcab24e69b30adaac91",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.4"
+            },
+            "type": "asgard-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Widart",
+                    "email": "info@asgardcms.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A blog module for AsgardCMS.",
+            "keywords": [
+                "asgardcms",
+                "blog",
+                "journal"
+            ],
+            "time": "2015-06-05 17:58:29"
         },
         {
             "name": "asgardcms/core-module",
@@ -4967,7 +5043,9 @@
         "asgardcms/menu-module": 20,
         "asgardcms/workshop-module": 20,
         "asgardcms/flatly-theme": 20,
-        "asgardcms/adminlte-theme": 20
+        "asgardcms/adminlte-theme": 20,
+        "asgardcms/blog-module": 20,
+        "asgardcms/block": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
