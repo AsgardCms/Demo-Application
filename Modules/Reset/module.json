@@ -1,0 +1,14 @@
+{
+    "name": "Reset",
+    "alias": "reset",
+    "description": "Resetting the demo application to its original state",
+    "keywords": [],
+    "version": "v0.1.0",
+    "active": 1,
+    "order": 3,
+    "providers": [
+        "Modules\\Reset\\Providers\\RouteServiceProvider"
+    ],
+    "files": [
+    ]
+}
