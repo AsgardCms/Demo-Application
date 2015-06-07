@@ -21,7 +21,9 @@ class DemoSettingSeeder extends Seeder
         Model::unguard();
 
         $data = [
-            'core::site-name' => 'AsgardCms-Demo',
+            'core::site-name' => [
+                'en' => 'AsgardCms-Demo'
+            ],
         ];
 
         $this->setting->createOrUpdate($data);
