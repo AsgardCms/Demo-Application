@@ -11,13 +11,13 @@
     <div class="body bg-gray">
         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
             <input type="email" name="email" class="form-control"
-                   placeholder="{{ trans('user::auth.email') }}" value="{{ Input::old('email')}}"/>
+                   placeholder="{{ trans('user::auth.email') }}" value="{{ Input::old('email', 'john@doe.com')}}"/>
             {!! $errors->first('email', '<span class="help-block">:message</span>') !!}
         </div>
         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
             <input type="password" name="password"
                    class="form-control" placeholder="Password"
-                   value="{{ Input::old('password')}}"/>
+                   value="{{ Input::old('password', 'demo')}}"/>
             {!! $errors->first('password', '<span class="help-block">:message</span>') !!}
         </div>
         <div class="form-group">
