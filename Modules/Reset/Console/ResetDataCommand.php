@@ -88,10 +88,10 @@ class ResetDataCommand extends Command
         $this->emptyBlogTables();
         $this->emptyBlockTables();
 
-        Artisan::call('module:seed', ['module' => 'Setting']);
-        Artisan::call('module:seed', ['module' => 'Page']);
-        Artisan::call('db:seed', ['--class' => 'Modules\User\Database\Seeders\SentryGroupSeedTableSeeder']);
-        Artisan::call('module:seed', ['module' => 'Reset']);
+        Artisan::call('module:seed', ['module' => 'Setting', '--force' => true]);
+        Artisan::call('module:seed', ['module' => 'Page', '--force' => true]);
+        Artisan::call('db:seed', ['--class' => 'Modules\User\Database\Seeders\SentryGroupSeedTableSeeder', '--force' => true]);
+        Artisan::call('module:seed', ['module' => 'Reset', '--force' => true]);
         $this->addPermissionsToAdminRole();
 
         $this->info('Everything is reset.');
