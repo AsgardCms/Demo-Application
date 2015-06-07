@@ -10,6 +10,7 @@ use Modules\Media\Repositories\FileRepository;
 use Modules\Menu\Repositories\MenuRepository;
 use Modules\Page\Repositories\PageRepository;
 use Modules\Setting\Repositories\SettingRepository;
+use Modules\User\Repositories\RoleRepository;
 use Modules\User\Repositories\UserRepository;
 
 class ResetDataCommand extends Command
@@ -53,11 +54,15 @@ class ResetDataCommand extends Command
      * @var BlockRepository
      */
     private $block;
+    /**
+     * @var RoleRepository
+     */
+    private $role;
 
     public function __construct(
         UserRepository $user, PageRepository $page, SettingRepository $setting, MenuRepository $menu,
         FileRepository $file, PostRepository $post, CategoryRepository $category, TagRepository $tag,
-        BlockRepository $block
+        BlockRepository $block, RoleRepository $role
     )
     {
         parent::__construct();
@@ -70,11 +75,12 @@ class ResetDataCommand extends Command
         $this->post = $post;
         $this->tag = $tag;
         $this->block = $block;
+        $this->role = $role;
     }
 
     public function fire()
     {
-        $this->emptyUserTable();
+        $this->emptyUserTables();
         $this->emptySettingsTable();
         $this->emptyMenuTable();
         $this->emptyMedia();
@@ -84,7 +90,9 @@ class ResetDataCommand extends Command
 
         Artisan::call('module:seed', ['module' => 'Setting']);
         Artisan::call('module:seed', ['module' => 'Page']);
+        Artisan::call('db:seed', ['--class' => 'Modules\User\Database\Seeders\SentryGroupSeedTableSeeder']);
         Artisan::call('module:seed', ['module' => 'Reset']);
+        $this->addPermissionsToAdminRole();
 
         $this->info('Everything is reset.');
     }
@@ -92,10 +100,13 @@ class ResetDataCommand extends Command
     /**
      *
      */
-    private function emptyUserTable()
+    private function emptyUserTables()
     {
         foreach ($this->user->all() as $user) {
             $this->user->delete($user->id);
+        }
+        foreach ($this->role->all() as $role) {
+            $this->role->delete($role->id);
         }
     }
 
@@ -163,5 +174,40 @@ class ResetDataCommand extends Command
         foreach ($this->block->all() as $block) {
             $this->block->destroy($block);
         }
+    }
+
+    private function addPermissionsToAdminRole()
+    {
+        $data = [
+            'permissions' => [
+                'block.blocks.index' => true,
+                'block.blocks.create' => true,
+                'block.blocks.store' => true,
+                'block.blocks.edit' => true,
+                'block.blocks.update' => true,
+                'block.blocks.destroy' => true,
+                "blog.posts.index" => true,
+                "blog.posts.create" => true,
+                "blog.posts.store" => true,
+                "blog.posts.edit" => true,
+                "blog.posts.update" => true,
+                "blog.posts.destroy" => true,
+                "blog.categories.index" => true,
+                "blog.categories.create" => true,
+                "blog.categories.store" => true,
+                "blog.categories.edit" => true,
+                "blog.categories.update" => true,
+                "blog.categories.destroy" => true,
+                "blog.tags.index" => true,
+                "blog.tags.create" => true,
+                "blog.tags.store" => true,
+                "blog.tags.edit" => true,
+                "blog.tags.update" => true,
+                "blog.tags.destroy" => true,
+            ],
+        ];
+        $adminRole = $this->role->findByName('Admin');
+
+        $this->role->update($adminRole->id, $data);
     }
 }
