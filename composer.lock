@@ -2701,12 +2701,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nWidart/modules.git",
-                "reference": "62b700a0ff0e6133fe873972ca350b2cde29d5e9"
+                "reference": "5524c2900a1162faf97b6e9d5d45f240d2ad5905"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nWidart/modules/zipball/62b700a0ff0e6133fe873972ca350b2cde29d5e9",
-                "reference": "62b700a0ff0e6133fe873972ca350b2cde29d5e9",
+                "url": "https://api.github.com/repos/nWidart/modules/zipball/5524c2900a1162faf97b6e9d5d45f240d2ad5905",
+                "reference": "5524c2900a1162faf97b6e9d5d45f240d2ad5905",
                 "shasum": ""
             },
             "require": {
@@ -2746,7 +2746,7 @@
             "support": {
                 "source": "https://github.com/nWidart/modules/tree/hotfix/migrations"
             },
-            "time": "2015-06-07 09:53:03"
+            "time": "2015-06-07 12:26:08"
         },
         {
             "name": "pingpong/support",
