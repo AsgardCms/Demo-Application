@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "55f5fc1545f480b9e1a31fe82527b918",
+    "hash": "9bce6f71dddb3f6475c487156b7e8f33",
     "packages": [
         {
             "name": "asgardcms/adminlte-theme",
@@ -52,7 +52,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AsgardCms/Core/zipball/d5631e1f3536b08110b870b7dea25d36578daffe",
+                "url": "https://api.github.com/repos/AsgardCms/Core/zipball/b8d2f46f4b5958fb6a7e4078b6dff784f9db9c77",
                 "reference": "d5631e1f3536b08110b870b7dea25d36578daffe",
                 "shasum": ""
             },
@@ -308,7 +308,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AsgardCms/Setting/zipball/9416049d174105ca2b060b671865f32cc086819f",
+                "url": "https://api.github.com/repos/AsgardCms/Setting/zipball/9fcfbf1ad0a99c0b95c421093c1bff4787734656",
                 "reference": "9416049d174105ca2b060b671865f32cc086819f",
                 "shasum": ""
             },
@@ -2629,7 +2629,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nWidart/modules/zipball/c3e5540c97094085f9f20ecba3a0eeb245cccb76",
+                "url": "https://api.github.com/repos/nWidart/modules/zipball/886aa2e5fe8021e95306da0c9d5e75707bbd0e8b",
                 "reference": "c3e5540c97094085f9f20ecba3a0eeb245cccb76",
                 "shasum": ""
             },
@@ -2713,6 +2713,56 @@
             ],
             "description": "Support Component of Pingpong Sky Package",
             "time": "2015-06-05 07:04:03"
+        },
+        {
+            "name": "predis/predis",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nrk/predis.git",
+                "reference": "7a170b3d8123c556597b4fbdb88631f99de180c2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/7a170b3d8123c556597b4fbdb88631f99de180c2",
+                "reference": "7a170b3d8123c556597b4fbdb88631f99de180c2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "ext-curl": "Allows access to Webdis when paired with phpiredis",
+                "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Predis\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniele Alessandri",
+                    "email": "suppakilla@gmail.com",
+                    "homepage": "http://clorophilla.net"
+                }
+            ],
+            "description": "Flexible and feature-complete PHP client library for Redis",
+            "homepage": "http://github.com/nrk/predis",
+            "keywords": [
+                "nosql",
+                "predis",
+                "redis"
+            ],
+            "time": "2015-01-02 12:51:34"
         },
         {
             "name": "psr/log",

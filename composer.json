@@ -20,7 +20,8 @@
     "asgardcms/menu-module": "dev-develop",
     "asgardcms/workshop-module": "dev-develop",
     "asgardcms/flatly-theme": "dev-master",
-    "asgardcms/adminlte-theme": "dev-master"
+    "asgardcms/adminlte-theme": "dev-master",
+    "predis/predis": "~1.0"
   },
   "require-dev": {
     "phpunit/phpunit": "~4.0",
